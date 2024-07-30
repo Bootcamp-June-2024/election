@@ -66,8 +66,6 @@ tibble(ID = c("1", "2", "...", "10", "11", "...", "N"),
 
 ## Discussion Points
 
-TFs: Don't tell students any of this! Ask them questions! Be Socrates.
-
 > What are the units, precisely?
 
 The units are candidates. But which candidates? Presumably the candidates for the mayoral election in Newton this year. But, we should probably expand this to other towns beside Newton  and other years besides this one. After all, Preceptor might run in a different year and/or move to a different town. But does that include towns outside Massachusetts? Outside the US? As always, there is no right answer.
