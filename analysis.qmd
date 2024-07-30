@@ -1,0 +1,15 @@
+---
+title: "Elections and Longevity"
+author: "David Kane"
+format: html
+execute: 
+  echo: false
+---
+
+```{r}
+#| label: setup
+#| message: false
+library(tidyverse)
+library(primer.data)
+```
+
