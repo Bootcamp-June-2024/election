@@ -11,5 +11,104 @@ execute:
 #| message: false
 library(tidyverse)
 library(primer.data)
+library(gt)
 ```
 
+### Day 1 Discussion 
+
+Subject: Longevity
+
+Broad question: Election results and lifespan
+
+Specific question: How old will Preceptor live to if he wins the election for mayor of Newton?
+
+Preceptor Table: 
+  
+  * Candidates. It is interesting to think about which candidates are included. After all, the smallest possible table which would allow us to answer the question includes just one row! With a row for Preceptor, and two potential outcomes, we can answer the question. But that, obviously (?), won't get us very far. So, we need to imagines that the question is not just about Preceptor specifically but about people like Preceptor.
+  
+  * (Potential) Outcomes: years lived if win election and 
+                          years lived if lose election.
+  
+  * Causal/predictive: a causal model  
+  
+  * Covariates: gender, year, incumbent, race, income, marital status, health, votes received
+  
+  * Treatment: win or lose a close election 
+
+## Example Preceptor Table
+  
+```{r}
+tibble(ID = c("1", "2", "...", "10", "11", "...", "N"),
+       attitude_after_control = c("70*", "56", "...", "65*", "54*", "...", "56"),
+       attitude_after_treated = c("63", "62*", "...", "71", "56", "...", "74*"),
+       treatment = c("Win", "Lose", "...", "Win", "Win", "...", "Lose")) |>
+  
+  gt() |>
+  tab_header(title = "Preceptor Table") |> 
+  cols_label(ID = md("ID"),
+             attitude_after_control = md("Years Lived if Lose Election"),
+             attitude_after_treated = md("Years Lives if Win Election"),
+             treatment = md("Treatment")) |>
+  tab_style(cell_borders(sides = "right"),
+            location = cells_body(columns = c(ID))) |>
+  tab_style(style = cell_text(align = "left", v_align = "middle", size = "large"), 
+            locations = cells_column_labels(columns = c(ID))) |>
+  cols_align(align = "center", columns = everything()) |>
+  cols_align(align = "left", columns = c(ID)) |>
+  fmt_markdown(columns = everything()) |>
+  tab_spanner(label = "Potential Outcomes", columns = c(attitude_after_control, attitude_after_treated)) |>
+  tab_spanner(label = "Covariate", columns = c(treatment)) |> 
+  tab_footnote(
+    footnote = md("A * indicates a potential outcome which we do not observe."),
+    locations = cells_column_spanners(spanners = "Potential Outcomes")
+  )
+```
+
+## Discussion Points
+
+TFs: Don't tell students any of this! Ask them questions! Be Socrates.
+
+> What are the units, precisely?
+
+The units are candidates. But which candidates? Presumably the candidates for the mayoral election in Newton this year. But, we should probably expand this to other towns beside Newton  and other years besides this one. After all, Preceptor might run in a different year and/or move to a different town. But does that include towns outside Massachusetts? Outside the US? As always, there is no right answer.
+
+If you read the paper, you will see that there is discussion about which elections to include. They decide to only include data from "close" elections because it makes the assumption on unconfoundedness more plausible. But does that mean we should restrict our Preceptor Table to close elections? Tough to say!
+
+Presumably, not. Preceptor wants to know how long he will live if he wins, not how long he will live if he wins, conditional on the election being close.
+
+> What is the moment in time, precisely?
+
+We might restrict this to elections in the fall of 2024. But it would be reasonably to extend it further in time, to consider all elections after now, up until 2030 or whenever.
+
+Again, there is no right answer. Each student might have their own answer.
+
+
+> What is one reason why validity might not hold?
+
+Validity is about the columns. The Preceptor Table has a treatment column which is win a mayoral election. But the treatment in the data is winning a gubernatorial election. Those are not the same thing, even if both tables have a column called "win." Validity probably does hold for the outcome variable.
+
+> Describe the Population Table in words
+
+Each row is a candidate/year combination. So, the same candidate might appear multiple times. Time period is 2024 to 2040 or whatever. Preceptor does not care about what would have happened if he had run for election in the past, so there is no need to have data prior till now.
+
+Probably includes the whole United States. After all, how could it include Massachusetts but not Connecticut? Needs to include candidates for all sorts of electoral office, not just mayor. After all, our data is for gubernatorial elections. If we believe that those elections give us insight about mayoral elections, then they certainly give insights about other kinds of elections.
+
+As always, the structure of the Population Table is driven by the structure of the Preceptor Table and the data. It is not clear how far back in time the Population Table should go. Just because we have data back to 1945 (or 1745) does not mean that we have to set the Population Table to such a long time period. In fact, if doing so makes our other assumptions implausible, then we should restrict the population to after 1960 or 1980 or whatever. That requires us to discard some data. Is discarding the data a good idea? It depends! There is no right answer. The further back in time we go, the more that we need to worry about the assumption of stability.
+
+> What is one reason why stability might not hold?
+
+Society is very different now. Winning an election might have been a lot more imoortant to life-expectancy in the past. This is a claim that the coefficient in our brm() model might be different in the 1950s than it would be today. Stability is always an assumption, rather than a fact, because the world is always changing. As always, we assume that it has no changed enough to matter to our estimates.
+
+> What is one reason why representativeness might not hold?
+
+Gubernatorial elections are not representative all of sorts of elections. They are different in many ways. So, the leap from data to poulation requires an assumption. Similarly, mayoral elections are different from other elections. So, the leap from population to Preceptor Table requires another leap.
+
+But there are more subtle details in this example. The data we use is just from close elections, in order to make unconfoundedness more plausible. But are "close" elections representative of all elections? I doubt it . . .
+
+> What is one reason why unconfoundedness might not hold?
+
+Unconfoundedness means that the treatment assignment is independent of the potential outcomes, when we condition on pre-treatment covariates. A model is confounded if this is not true. 
+
+The central problem is that there might be another factor --- healthiness, wealth, et cetera --- which might have a causal effect in both the treatment assignment (winning the election or not) and on the outcome (years lived). If so, there lonng life among election winners might have nothing to do with winning the election. Instead, the cause of both longevity and winning is some third factor, like wealth. In that case, we could expect Preceptor to live to the same age regardless of whether or not he wins the election.
+
+The authors try to argue that unconfoundedness is less of an issue if we focus on close elections. Consider the extreme case between an election you win by 1% or lose by 1%. In that case, the result is the proverbial "coin flip," something that we can treat as more or less random, as unconnected to any other factors. After all, it is easy to imagine, with a close election, that a given candidate might have won a race she, in fact, lost, or vice versa.

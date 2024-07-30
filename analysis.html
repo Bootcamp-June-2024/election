@@ -69,7 +69,584 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="day-1-discussion" class="level3">
+<h3 class="anchored" data-anchor-id="day-1-discussion">Day 1 Discussion</h3>
+<p>Subject: Longevity</p>
+<p>Broad question: Election results and lifespan</p>
+<p>Specific question: How old will Preceptor live to if he wins the election for mayor of Newton?</p>
+<p>Preceptor Table:</p>
+<ul>
+<li><p>Candidates. It is interesting to think about which candidates are included. After all, the smallest possible table which would allow us to answer the question includes just one row! With a row for Preceptor, and two potential outcomes, we can answer the question. But that, obviously (?), won’t get us very far. So, we need to imagines that the question is not just about Preceptor specifically but about people like Preceptor.</p></li>
+<li><p>(Potential) Outcomes: years lived if win election and years lived if lose election.</p></li>
+<li><p>Causal/predictive: a causal model</p></li>
+<li><p>Covariates: gender, year, incumbent, race, income, marital status, health, votes received</p></li>
+<li><p>Treatment: win or lose a close election</p></li>
+</ul>
+</section>
+<section id="example-preceptor-table" class="level2">
+<h2 class="anchored" data-anchor-id="example-preceptor-table">Example Preceptor Table</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div id="tcyuhfptxi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tcyuhfptxi table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
+#tcyuhfptxi thead, #tcyuhfptxi tbody, #tcyuhfptxi tfoot, #tcyuhfptxi tr, #tcyuhfptxi td, #tcyuhfptxi th {
+  border-style: none;
+}
+
+#tcyuhfptxi p {
+  margin: 0;
+  padding: 0;
+}
+
+#tcyuhfptxi .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#tcyuhfptxi .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#tcyuhfptxi .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#tcyuhfptxi .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#tcyuhfptxi .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#tcyuhfptxi .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tcyuhfptxi .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#tcyuhfptxi .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#tcyuhfptxi .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#tcyuhfptxi .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#tcyuhfptxi .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#tcyuhfptxi .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#tcyuhfptxi .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#tcyuhfptxi .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#tcyuhfptxi .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#tcyuhfptxi .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#tcyuhfptxi .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#tcyuhfptxi .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#tcyuhfptxi .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tcyuhfptxi .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#tcyuhfptxi .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#tcyuhfptxi .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#tcyuhfptxi .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tcyuhfptxi .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#tcyuhfptxi .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#tcyuhfptxi .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tcyuhfptxi .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tcyuhfptxi .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#tcyuhfptxi .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tcyuhfptxi .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#tcyuhfptxi .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#tcyuhfptxi .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#tcyuhfptxi .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tcyuhfptxi .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#tcyuhfptxi .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#tcyuhfptxi .gt_left {
+  text-align: left;
+}
+
+#tcyuhfptxi .gt_center {
+  text-align: center;
+}
+
+#tcyuhfptxi .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#tcyuhfptxi .gt_font_normal {
+  font-weight: normal;
+}
+
+#tcyuhfptxi .gt_font_bold {
+  font-weight: bold;
+}
+
+#tcyuhfptxi .gt_font_italic {
+  font-style: italic;
+}
+
+#tcyuhfptxi .gt_super {
+  font-size: 65%;
+}
+
+#tcyuhfptxi .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#tcyuhfptxi .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#tcyuhfptxi .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#tcyuhfptxi .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#tcyuhfptxi .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#tcyuhfptxi .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#tcyuhfptxi .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header gt_heading">
+<th colspan="4" class="gt_heading gt_title gt_font_normal gt_bottom_border">Preceptor Table</th>
+</tr>
+<tr class="odd gt_col_headings gt_spanner_row">
+<th rowspan="2" id="ID" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="text-align: left; font-size: large; vertical-align: middle;" scope="col">ID</th>
+<th colspan="2" id="Potential Outcomes<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Potential Outcomes<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></span></th>
+<th id="Covariate" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="col"><span class="gt_column_spanner">Covariate</span></th>
+</tr>
+<tr class="header gt_col_headings">
+<th id="Years Lived if Lose Election" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Years Lived if Lose Election</th>
+<th id="Years Lives if Win Election" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Years Lives if Win Election</th>
+<th id="Treatment" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Treatment</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="ID" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000"><p>1</p></td>
+<td class="gt_row gt_center" headers="attitude_after_control"><p>70*</p></td>
+<td class="gt_row gt_center" headers="attitude_after_treated"><p>63</p></td>
+<td class="gt_row gt_center" headers="treatment"><p>Win</p></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="ID" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000"><p>2</p></td>
+<td class="gt_row gt_center" headers="attitude_after_control"><p>56</p></td>
+<td class="gt_row gt_center" headers="attitude_after_treated"><p>62*</p></td>
+<td class="gt_row gt_center" headers="treatment"><p>Lose</p></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="ID" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000"><p>…</p></td>
+<td class="gt_row gt_center" headers="attitude_after_control"><p>…</p></td>
+<td class="gt_row gt_center" headers="attitude_after_treated"><p>…</p></td>
+<td class="gt_row gt_center" headers="treatment"><p>…</p></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="ID" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000"><p>10</p></td>
+<td class="gt_row gt_center" headers="attitude_after_control"><p>65*</p></td>
+<td class="gt_row gt_center" headers="attitude_after_treated"><p>71</p></td>
+<td class="gt_row gt_center" headers="treatment"><p>Win</p></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="ID" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000"><p>11</p></td>
+<td class="gt_row gt_center" headers="attitude_after_control"><p>54*</p></td>
+<td class="gt_row gt_center" headers="attitude_after_treated"><p>56</p></td>
+<td class="gt_row gt_center" headers="treatment"><p>Win</p></td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="ID" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000"><p>…</p></td>
+<td class="gt_row gt_center" headers="attitude_after_control"><p>…</p></td>
+<td class="gt_row gt_center" headers="attitude_after_treated"><p>…</p></td>
+<td class="gt_row gt_center" headers="treatment"><p>…</p></td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="ID" style="border-right-width: 1px; border-right-style: solid; border-right-color: #000000"><p>N</p></td>
+<td class="gt_row gt_center" headers="attitude_after_control"><p>56</p></td>
+<td class="gt_row gt_center" headers="attitude_after_treated"><p>74*</p></td>
+<td class="gt_row gt_center" headers="treatment"><p>Lose</p></td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="even">
+<td colspan="4" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> A * indicates a potential outcome which we do not observe.</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="discussion-points" class="level2">
+<h2 class="anchored" data-anchor-id="discussion-points">Discussion Points</h2>
+<p>TFs: Don’t tell students any of this! Ask them questions! Be Socrates.</p>
+<blockquote class="blockquote">
+<p>What are the units, precisely?</p>
+</blockquote>
+<p>The units are candidates. But which candidates? Presumably the candidates for the mayoral election in Newton this year. But, we should probably expand this to other towns beside Newton and other years besides this one. After all, Preceptor might run in a different year and/or move to a different town. But does that include towns outside Massachusetts? Outside the US? As always, there is no right answer.</p>
+<p>If you read the paper, you will see that there is discussion about which elections to include. They decide to only include data from “close” elections because it makes the assumption on unconfoundedness more plausible. But does that mean we should restrict our Preceptor Table to close elections? Tough to say!</p>
+<p>Presumably, not. Preceptor wants to know how long he will live if he wins, not how long he will live if he wins, conditional on the election being close.</p>
+<blockquote class="blockquote">
+<p>What is the moment in time, precisely?</p>
+</blockquote>
+<p>We might restrict this to elections in the fall of 2024. But it would be reasonably to extend it further in time, to consider all elections after now, up until 2030 or whenever.</p>
+<p>Again, there is no right answer. Each student might have their own answer.</p>
+<blockquote class="blockquote">
+<p>What is one reason why validity might not hold?</p>
+</blockquote>
+<p>Validity is about the columns. The Preceptor Table has a treatment column which is win a mayoral election. But the treatment in the data is winning a gubernatorial election. Those are not the same thing, even if both tables have a column called “win.” Validity probably does hold for the outcome variable.</p>
+<blockquote class="blockquote">
+<p>Describe the Population Table in words</p>
+</blockquote>
+<p>Each row is a candidate/year combination. So, the same candidate might appear multiple times. Time period is 2024 to 2040 or whatever. Preceptor does not care about what would have happened if he had run for election in the past, so there is no need to have data prior till now.</p>
+<p>Probably includes the whole United States. After all, how could it include Massachusetts but not Connecticut? Needs to include candidates for all sorts of electoral office, not just mayor. After all, our data is for gubernatorial elections. If we believe that those elections give us insight about mayoral elections, then they certainly give insights about other kinds of elections.</p>
+<p>As always, the structure of the Population Table is driven by the structure of the Preceptor Table and the data. It is not clear how far back in time the Population Table should go. Just because we have data back to 1945 (or 1745) does not mean that we have to set the Population Table to such a long time period. In fact, if doing so makes our other assumptions implausible, then we should restrict the population to after 1960 or 1980 or whatever. That requires us to discard some data. Is discarding the data a good idea? It depends! There is no right answer. The further back in time we go, the more that we need to worry about the assumption of stability.</p>
+<blockquote class="blockquote">
+<p>What is one reason why stability might not hold?</p>
+</blockquote>
+<p>Society is very different now. Winning an election might have been a lot more imoortant to life-expectancy in the past. This is a claim that the coefficient in our brm() model might be different in the 1950s than it would be today. Stability is always an assumption, rather than a fact, because the world is always changing. As always, we assume that it has no changed enough to matter to our estimates.</p>
+<blockquote class="blockquote">
+<p>What is one reason why representativeness might not hold?</p>
+</blockquote>
+<p>Gubernatorial elections are not representative all of sorts of elections. They are different in many ways. So, the leap from data to poulation requires an assumption. Similarly, mayoral elections are different from other elections. So, the leap from population to Preceptor Table requires another leap.</p>
+<p>But there are more subtle details in this example. The data we use is just from close elections, in order to make unconfoundedness more plausible. But are “close” elections representative of all elections? I doubt it . . .</p>
+<blockquote class="blockquote">
+<p>What is one reason why unconfoundedness might not hold?</p>
+</blockquote>
+<p>Unconfoundedness means that the treatment assignment is independent of the potential outcomes, when we condition on pre-treatment covariates. A model is confounded if this is not true.</p>
+<p>The central problem is that there might be another factor — healthiness, wealth, et cetera — which might have a causal effect in both the treatment assignment (winning the election or not) and on the outcome (years lived). If so, there lonng life among election winners might have nothing to do with winning the election. Instead, the cause of both longevity and winning is some third factor, like wealth. In that case, we could expect Preceptor to live to the same age regardless of whether or not he wins the election.</p>
+<p>The authors try to argue that unconfoundedness is less of an issue if we focus on close elections. Consider the extreme case between an election you win by 1% or lose by 1%. In that case, the result is the proverbial “coin flip,” something that we can treat as more or less random, as unconnected to any other factors. After all, it is easy to imagine, with a close election, that a given candidate might have won a race she, in fact, lost, or vice versa.</p>
+</section>
 
 </main>
 <!-- /main column -->
