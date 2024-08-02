@@ -3136,8 +3136,8 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Using data about US governor candidates from the years 1945 - 2012, we seek to find the relationship between the longevity of Preceptor David Kane and whether or not he wins the Mayoral Election in Newton, MA. Modern medicine has increased the overall lifespan of all candidates regardless of if they won or lost. We modeled age of death as a sum of election result (won/lost), age during election, political party and the win margin. We expect Preceptor to live an extra 8 years (plus/minus 6 years) if he were to win the Mayorial election.</p>
-<p><span class="math display">\[death\_age_i = \beta_{0} + \beta_{1} treatment_i + \beta_{2}win\_margin_i + \\ \beta_{4}repub_i +  \beta_{5}thirdparty_i + \epsilon_{i}\]</span></p>
+<p>Using data about US governor candidates from the years 1945 - 2012, we seek to find the relationship between the longevity of Preceptor David Kane and whether or not he wins the Mayoral Election in Newton, MA. Modern medicine has increased the overall lifespan of all candidates regardless of if they won or lost. We modeled age of death as a linear function of election result, political party and the percentage margin of victory/defeat. Winning an election is associated with increased longevity. We expect Preceptor to live an extra 8 years (plus/minus 5 years) if he were to win the Mayorial election.</p>
+<p><span class="math display">\[death\_age_i = \beta_{0} + \beta_{1} treatment\_win_i + \beta_{2}win\_margin_i + \\ \beta_{4}repub_i +  \beta_{5}thirdparty_i + \epsilon_{i}\]</span></p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
